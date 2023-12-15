@@ -13,6 +13,10 @@ Helper for handling subcommands with [meow](https://github.com/sindresorhus/meow
 
 ### Basic
 
+<!--
+TODO: Include this example using eg: https://unifiedjs.com/explore/package/remark-usage/
+-->
+
 ```javascript
 import { meowWithSubcommands } from 'meow-with-subcommands';
 
@@ -44,6 +48,10 @@ await meowWithSubcommands(
 See [`example`](./example/)-folder
 
 ## API
+
+<!--
+TODO: Generate these docs from the JSDoc instead
+-->
 
 ### `meowWithSubcommands(commands, { [aliases], argv, name, ...meowOptions }) => Promise<void>`
 
