@@ -1,2 +1,7 @@
-export * from './multi/index.js';
-export * from './single/index.js';
+import { multi } from './multi/index.js';
+import { single } from './single/index.js';
+
+export default {
+  multi,
+  single,
+};

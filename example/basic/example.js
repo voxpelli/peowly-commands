@@ -4,7 +4,7 @@ await meowWithSubcommands(
   {
     foo: {
       description: 'Do something very foo-like',
-      async run (argv, importMeta, { parentName }) {
+      async run (_argv, _importMeta, { parentName: _ }) {
         // Do whatever you like, eg. initiate a new meow or meow-with-subcommands
       },
     },

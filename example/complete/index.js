@@ -5,7 +5,7 @@ import { messageWithCauses, stackWithCauses } from 'pony-cause';
 
 import { meowWithSubcommands } from '../../index.js';
 
-import * as cliCommands from './commands/index.js';
+import cliCommands from './commands/index.js';
 import { InputError } from './utils/errors.js';
 
 try {
