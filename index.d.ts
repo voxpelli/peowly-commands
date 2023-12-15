@@ -1,3 +1,3 @@
-export type * from './lib/advanced-types.d.ts';
-
-export { default } from './lib/main.js';
+export * from './lib/flags.js';
+export * from './lib/formatting.js';
+export * from './lib/main.js';

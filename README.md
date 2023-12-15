@@ -1,11 +1,9 @@
-# Node Module Template
+# meow-with-subcommands
 
-A GitHub template repo for node modules
+Helper for handling subcommands with [meow](https://github.com/sindresorhus/meow)
 
-<!--
-[![npm version](https://img.shields.io/npm/v/@voxpelli/node-module-template.svg?style=flat)](https://www.npmjs.com/package/@voxpelli/node-module-template)
-[![npm downloads](https://img.shields.io/npm/dm/@voxpelli/node-module-template.svg?style=flat)](https://www.npmjs.com/package/@voxpelli/node-module-template)
--->
+[![npm version](https://img.shields.io/npm/v/meow-with-subcommands.svg?style=flat)](https://www.npmjs.com/package/meow-with-subcommands)
+[![npm downloads](https://img.shields.io/npm/dm/meow-with-subcommands.svg?style=flat)](https://www.npmjs.com/package/meow-with-subcommands)
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/voxpelli/eslint-config)
 [![Module type: ESM](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
@@ -13,29 +11,52 @@ A GitHub template repo for node modules
 
 ## Usage
 
-### Simple
+### Basic
 
 ```javascript
-import { something } from '@voxpelli/node-module-template';
+import { meowWithSubcommands } from 'meow-with-subcommands';
 
-// Use that something
+await meowWithSubcommands(
+  {
+    foo: {
+      description: 'Do something very foo-like',
+      async run (argv, importMeta, { parentName }) {
+        // Do whatever you like, eg. initiate a new meow or meow-with-subcommands
+      }
+    }
+  },
+  {
+    aliases: {
+      fs: {
+        description: 'Alias for "foo --strict"',
+        argv: ['foo', '--strict']
+      },
+    },
+    argv: process.argv.slice(2),
+    name: 'name-of-cli',
+    importMeta: import.meta
+  }
+)
 ```
+
+### Complete
+
+See [`example`](./example/)-folder
 
 ## API
 
-### `something(input, { configParam }) => Promise<output>`
+### `meowWithSubcommands(commands, { [aliases], argv, name, ...meowOptions }) => Promise<void>`
 
-Takes a value (`input`), does something configured by the config (`configParam`) and returns the processed value asyncly(`output`)
+### `prepareFlags`
 
-## Used by
+### `printFlagList`
 
-* [`example`](https://example.com/) – used by this one to do X and Y
+### `printHelpList`
 
-## Similar modules
+## Extracted from
 
-* [`example`](https://example.com/) – is similar in this way
+* [`SocketDev/socket-cli-js`](https://github.com/SocketDev/socket-cli-js/tree/535a68eb12f46ba20010c1db795a04a7593ec4a5) – I found the pattern I created for this open source CLI to be quite helpful and wanted to reuse it
 
 ## See also
 
-* [Announcement blog post](#)
-* [Announcement tweet](#)
+* [`meow`](https://github.com/sindresorhus/meow)
