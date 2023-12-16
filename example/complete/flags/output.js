@@ -3,13 +3,13 @@ import { prepareFlags } from '../../../index.js';
 export const outputFlags = prepareFlags({
   json: {
     type: 'boolean',
-    alias: 'j',
+    shortFlag: 'j',
     'default': false,
     description: 'Output result as json',
   },
   markdown: {
     type: 'boolean',
-    alias: 'm',
+    shortFlag: 'm',
     'default': false,
     description: 'Output result as markdown',
   },
