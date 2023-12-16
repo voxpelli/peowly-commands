@@ -19,7 +19,6 @@ export type {
 export type {
   HelpList,
   HelpListOptions,
-  ListDescription,
 } from './lib/formatting.js';
 
 export type {
