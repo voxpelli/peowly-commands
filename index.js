@@ -1,3 +1,10 @@
-export * from './lib/flags.js';
-export * from './lib/formatting.js';
-export * from './lib/main.js';
+export {
+  prepareFlags,
+} from './lib/flags.js';
+export {
+  printFlagList,
+  printHelpList,
+} from './lib/formatting.js';
+export {
+  meowWithSubcommands,
+} from './lib/main.js';
