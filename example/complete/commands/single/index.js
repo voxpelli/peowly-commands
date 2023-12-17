@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import { MarkdownOrChalk } from 'markdown-or-chalk';
 import meow from 'meow';
 import ora from 'ora';
-import { printFlagList } from '../../../../index.js';
+import { formatHelpMessage } from '../../../../index.js';
 
 import { outputFlags, validationFlags } from '../../flags/index.js';
 import { InputError } from '../../utils/errors.js';
@@ -49,16 +49,11 @@ function setupCommand (name, description, argv, importMeta) {
     ...validationFlags,
   };
 
-  const cli = meow(`
-    Usage
-      $ ${name} <name>
-
-    Options
-      ${printFlagList(flags, 6)}
-
-    Examples
-      $ ${name} yay
-  `, {
+  const cli = meow(formatHelpMessage(name, {
+    examples: ['yay'],
+    flags,
+    usage: '<name>',
+  }), {
     argv,
     description,
     importMeta,

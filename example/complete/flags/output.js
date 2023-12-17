@@ -2,15 +2,17 @@ import { prepareFlags } from '../../../index.js';
 
 export const outputFlags = prepareFlags({
   json: {
-    type: 'boolean',
-    shortFlag: 'j',
     'default': false,
     description: 'Output result as json',
+    listGroup: 'Output',
+    shortFlag: 'j',
+    type: 'boolean',
   },
   markdown: {
-    type: 'boolean',
-    shortFlag: 'm',
     'default': false,
     description: 'Output result as markdown',
+    listGroup: 'Output',
+    shortFlag: 'm',
+    type: 'boolean',
   },
 });
