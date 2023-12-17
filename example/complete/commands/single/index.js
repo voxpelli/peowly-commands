@@ -47,6 +47,23 @@ function setupCommand (name, description, argv, importMeta) {
   const flags = /** @satisfies {import('../../../../index.js').AnyFlags} */ ({
     ...outputFlags,
     ...validationFlags,
+    input: {
+      type: 'string',
+      shortFlag: 'i',
+      'default': 'index.js',
+      description: 'The input to use',
+    },
+    output: {
+      type: 'string',
+      'default': 'dist.js',
+      description: 'The subtitle to use',
+    },
+    count: {
+      type: 'number',
+      shortFlag: 'c',
+      'default': 16,
+      description: 'The subtitle to use',
+    },
     logs: {
       type: 'boolean',
       'default': true,
