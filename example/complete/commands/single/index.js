@@ -44,10 +44,15 @@ export const single = {
  * @returns {void|CommandContext}
  */
 function setupCommand (name, description, argv, importMeta) {
-  const flags = {
+  const flags = /** @satisfies {import('../../../../index.js').AnyFlags} */ ({
     ...outputFlags,
     ...validationFlags,
-  };
+    logs: {
+      type: 'boolean',
+      'default': true,
+      description: 'Controls log output',
+    },
+  });
 
   const cli = meow(formatHelpMessage(name, {
     examples: ['yay'],
