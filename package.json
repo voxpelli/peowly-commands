@@ -1,6 +1,6 @@
 {
   "name": "meow-with-subcommands",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Helper for handling subcommands with meow",
   "homepage": "http://github.com/voxpelli/meow-with-subcommands",
   "repository": {
