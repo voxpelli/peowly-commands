@@ -1,18 +1,16 @@
-import { prepareFlags } from '../../../index.js';
-
-export const outputFlags = prepareFlags({
+export const outputFlags = /** @satisfies {import('peowly').AnyFlags} */ ({
   json: {
     'default': false,
     description: 'Output result as json',
     listGroup: 'Output',
-    shortFlag: 'j',
+    'short': 'j',
     type: 'boolean',
   },
   markdown: {
     'default': false,
     description: 'Output result as markdown',
     listGroup: 'Output',
-    shortFlag: 'm',
+    'short': 'm',
     type: 'boolean',
   },
 });

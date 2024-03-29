@@ -3,13 +3,13 @@
 import chalk from 'chalk';
 import { messageWithCauses, stackWithCauses } from 'pony-cause';
 
-import { meowWithSubcommands } from '../../index.js';
+import { peowlyCommands } from '../../index.js';
 
 import cliCommands from './commands/index.js';
 import { InputError } from './utils/errors.js';
 
 try {
-  await meowWithSubcommands(
+  await peowlyCommands(
     cliCommands,
     {
       aliases: {
@@ -18,7 +18,6 @@ try {
           argv: ['multi', 'one', '--strict'],
         },
       },
-      argv: process.argv.slice(2),
       name: 'name-of-cli',
       importMeta: import.meta,
     }

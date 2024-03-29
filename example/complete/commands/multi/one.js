@@ -1,21 +1,24 @@
 /* eslint-disable unicorn/no-process-exit */
 /* eslint-disable no-console */
 
-import meow from 'meow';
-import { printFlagList } from '../../../../index.js';
+import { trimNewlines } from 'trim-newlines';
+import redent from 'redent';
+
+import { defaultFlags, formatFlagList, peowly } from 'peowly';
 
 import { validationFlags } from '../../flags/index.js';
 import { InputError } from '../../utils/errors.js';
 
-/** @type {import('../../../../index.js').CliSubcommand} */
+/** @type {import('../../../../index.js').CliCommand} */
 export const one = {
   description: 'A subcommand to a command',
-  async run (argv, importMeta, { parentName }) {
+  async run (args, meta, { parentName }) {
     const name = parentName + ' one';
 
-    const input = setupCommand(name, one.description, argv, importMeta);
+    const input = setupCommand(name, one.description, args, meta);
 
     if (input) {
+      console.log(`Strict mode: ${input.strict}`);
       console.log(`Got this input: ${input.inputItem}`);
 
       process.exit(input.strict ? 1 : 0);
@@ -34,29 +37,30 @@ export const one = {
 /**
  * @param {string} name
  * @param {string} description
- * @param {readonly string[]} argv
- * @param {ImportMeta} importMeta
+ * @param {string[]} args
+ * @param {import('../../../../index.js').CliMeta} meta
  * @returns {void|CommandContext}
  */
-function setupCommand (name, description, argv, importMeta) {
+function setupCommand (name, description, args, meta) {
   const flags = {
     ...validationFlags,
   };
 
-  const cli = meow(`
-    Usage
-      $ ${name} <name>
-
-    Options
-      ${printFlagList(flags, 6)}
-
-    Examples
-      $ ${name} yay
-  `, {
-    argv,
+  const cli = peowly({
+    ...meta,
+    args,
     description,
-    importMeta,
-    flags,
+    help: redent(trimNewlines(`
+      Usage
+        $ ${name} <name>
+
+      Options
+        ${formatFlagList({ ...defaultFlags, ...flags }, 6)}
+
+      Examples
+        $ ${name} yay
+    `)),
+    options: flags,
   });
 
   const {

@@ -1,6 +1,6 @@
-import { meowWithSubcommands } from '../../index.js';
+import { peowlyCommands } from '../../index.js';
 
-await meowWithSubcommands(
+await peowlyCommands(
   {
     foo: {
       description: 'Do something very foo-like',
@@ -16,8 +16,6 @@ await meowWithSubcommands(
         argv: ['foo', '--strict'],
       },
     },
-    argv: process.argv.slice(2),
-    name: 'name-of-cli',
     importMeta: import.meta,
   }
 );

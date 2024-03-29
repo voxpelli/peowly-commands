@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-/** @type {import('../../../../index.js').CliSubcommand} */
+/** @type {import('../../../../index.js').CliCommand} */
 export const two = {
   description: 'Another subcommand to a command',
   run () {

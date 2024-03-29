@@ -1,6 +1,4 @@
-import { prepareFlags } from '../../../index.js';
-
-export const validationFlags = prepareFlags({
+export const validationFlags = /** @satisfies {import('peowly').AnyFlags} */ ({
   strict: {
     type: 'boolean',
     'default': false,

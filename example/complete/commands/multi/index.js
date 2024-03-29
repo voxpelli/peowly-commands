@@ -1,25 +1,24 @@
-import { meowWithSubcommands } from '../../../../index.js';
+import { peowlyCommands } from '../../../../index.js';
 
 import { one } from './one.js';
 import { two } from './two.js';
 
 const description = 'Command with its own subcommands';
 
-/** @type {import('../../../../index.js').CliSubcommand} */
+/** @type {import('../../../../index.js').CliCommand} */
 export const multi = {
   description,
-  run: async (argv, importMeta, { parentName }) => {
-    await meowWithSubcommands(
+  run: async (args, meta, { parentName }) => {
+    await peowlyCommands(
       {
         one,
         two,
       },
       {
-        argv,
-        description,
-        importMeta,
+        args,
         name: parentName + ' multi',
-      }
+      },
+      meta
     );
   },
 };
