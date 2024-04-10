@@ -1,6 +1,13 @@
-# peowly-commands
+<div align="center">
+  <img
+    src="peowly-commands.svg"
+    width="512"
+    height="auto"
+    alt="peowly-commands"
+  />
+</div>
 
-Helper for handling commands with [peowly](https://github.com/voxpelli/peowly)
+<div align="center">
 
 [![npm version](https://img.shields.io/npm/v/peowly-commands.svg?style=flat)](https://www.npmjs.com/package/peowly-commands)
 [![npm downloads](https://img.shields.io/npm/dm/peowly-commands.svg?style=flat)](https://www.npmjs.com/package/peowly-commands)
@@ -8,6 +15,10 @@ Helper for handling commands with [peowly](https://github.com/voxpelli/peowly)
 [![Module type: ESM](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![Types in JS](https://img.shields.io/badge/types_in_js-yes-brightgreen)](https://github.com/voxpelli/types-in-js)
 [![Follow @voxpelli@mastodon.social](https://img.shields.io/mastodon/follow/109247025527949675?domain=https%3A%2F%2Fmastodon.social&style=social)](https://mastodon.social/@voxpelli)
+
+</div>
+
+Helper for handling commands with [peowly](https://github.com/voxpelli/peowly)
 
 ## Usage
 
