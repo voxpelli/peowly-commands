@@ -1,6 +1,6 @@
 {
   "name": "peowly-commands",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Helper for handling commands with peowly",
   "homepage": "http://github.com/voxpelli/peowly-commands",
   "repository": {
