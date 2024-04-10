@@ -69,7 +69,7 @@ peowlyCommands(commands: CliCommands, options: CliOptions, meta?: PeowlyMeta | u
 * [`argsclopts`](https://github.com/bcomnes/argsclopts) – also concerned with helpers around `parseArgs`
 * [`meow`](https://github.com/sindresorhus/meow) – the inspiration for `peowly` – and name inspiration (`p` as in `parseArgs`, `eow` as in `meow`, `ly` to avoid being perceived as a typejacking)
 * [`meow-with-subcommands`](https://github.com/voxpelli/meow-with-subcommands) – the original version of this module and what evolved into `peowly` and `peowly-commands`
-* [`peowly`](https://github.com/voxpelli/peowly) - the parser module that this module builds on
+* [`peowly`](https://github.com/voxpelli/peowly) – the parser module that this module builds on
 
 ## See also
 
