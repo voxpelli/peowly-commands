@@ -80,8 +80,8 @@
     "typescript": "~5.4.3"
   },
   "dependencies": {
-    "normalize-package-data": "^6.0.0",
-    "peowly": "^1.1.0",
+    "normalize-package-data": "^6.0.1",
+    "peowly": "^1.3.0",
     "read-package-up": "^11.0.0"
   }
 }
