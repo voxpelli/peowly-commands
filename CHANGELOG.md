@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/voxpelli/peowly-commands/compare/v1.1.0...v1.1.1) (2024-06-20)
+
+
+### 🧹 Chores
+
+* **deps:** update dependency installed-check to ^9.3.0 ([#3](https://github.com/voxpelli/peowly-commands/issues/3)) ([0caa74a](https://github.com/voxpelli/peowly-commands/commit/0caa74a82a0c0978c6ed349e6f1a5d9aaee84c3c))
+* **deps:** update dependency pony-cause to ^2.1.11 ([#2](https://github.com/voxpelli/peowly-commands/issues/2)) ([8fbde6f](https://github.com/voxpelli/peowly-commands/commit/8fbde6fe1178ac6a863e9c685fbe1d58d9549512))
+
 ## [1.1.0](https://github.com/voxpelli/peowly-commands/compare/v1.0.1...v1.1.0) (2024-06-20)
 
 
