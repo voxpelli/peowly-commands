@@ -64,6 +64,10 @@ See [`example`](./example/)-folder
 peowlyCommands(commands: CliCommands, options: CliOptions, meta?: PeowlyMeta | undefined): Promise<void>
 ```
 
+### PeowlyCommandMissingError
+
+Thrown when `peowlyCommands()` is given a command that it can not find. Comes with a `commandName` property and a `showHelp()` function. The latter works like the `showHelp()` of [`peowly`](https://github.com/voxpelli/peowly)
+
 ## Similar modules
 
 * [`argsclopts`](https://github.com/bcomnes/argsclopts) – also concerned with helpers around `parseArgs`
