@@ -13,3 +13,8 @@ export class InputError extends Error {
     this.body = body;
   }
 }
+
+export class ResultError extends Error {
+  /** @override */
+  name = 'ResultError';
+}

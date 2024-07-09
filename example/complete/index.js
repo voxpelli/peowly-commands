@@ -1,49 +1,49 @@
-/* eslint-disable no-console */
-
 import chalk from 'chalk';
+import { peowlyCommands } from 'peowly-commands';
 import { messageWithCauses, stackWithCauses } from 'pony-cause';
 
-import { peowlyCommands } from '../../index.js';
-
-import cliCommands from './commands/index.js';
-import { InputError } from './utils/errors.js';
+import { cliCommands } from './commands/index.js';
+import { InputError, ResultError } from './utils/errors.js';
+import { isErrorWithCode } from './utils/typed-utils.js';
 
 try {
-  await peowlyCommands(
-    cliCommands,
-    {
-      aliases: {
-        foo: {
-          description: 'Alias for "multi one --strict"',
-          argv: ['multi', 'one', '--strict'],
-        },
-      },
-      name: 'name-of-cli',
-      importMeta: import.meta,
-    }
-  );
+  await peowlyCommands(cliCommands, { importMeta: import.meta, name: 'list-dependents' });
 } catch (err) {
-  /** @type {string} */
+  /** @type {string|undefined} */
   let errorTitle;
   /** @type {string} */
   let errorMessage = '';
   /** @type {string|undefined} */
   let errorBody;
 
+  if (err instanceof ResultError) {
+    // eslint-disable-next-line unicorn/no-process-exit
+    process.exit(2);
+  }
+
   if (err instanceof InputError) {
     errorTitle = 'Invalid input';
     errorMessage = err.message;
     errorBody = err.body;
-  } else if (err instanceof Error) {
-    errorTitle = 'Unexpected error';
-    errorMessage = messageWithCauses(err);
-    errorBody = stackWithCauses(err);
-  } else {
-    errorTitle = 'Unexpected error with no details';
+  } else if (isErrorWithCode(err) && (err.code === 'ERR_PARSE_ARGS_UNKNOWN_OPTION' || err.code === 'ERR_PARSE_ARGS_INVALID_OPTION_VALUE')) {
+    errorTitle = 'Invalid input';
+    errorMessage = err.message;
   }
 
+  if (!errorTitle) {
+    if (err instanceof Error) {
+      errorTitle = 'Unexpected error';
+      errorMessage = messageWithCauses(err);
+      errorBody = stackWithCauses(err);
+    } else {
+      errorTitle = 'Unexpected error with no details';
+    }
+  }
+
+  // eslint-disable-next-line no-console
   console.error(`${chalk.white.bgRed(errorTitle + ':')} ${errorMessage}`);
   if (errorBody) {
+    // eslint-disable-next-line no-console
     console.error('\n' + errorBody);
   }
 
