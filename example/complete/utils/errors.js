@@ -1,4 +1,7 @@
 export class InputError extends Error {
+  /** @override */
+  name = 'InputError';
+
   /**
    * @param {string} message
    * @param {string} [body]
