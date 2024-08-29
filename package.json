@@ -61,7 +61,7 @@
     "markdown-or-chalk": "^0.2.1",
     "mocha": "^10.4.0",
     "npm-run-all2": "^6.2.0",
-    "ora": "^8.0.1",
+    "ora": "^8.1.0",
     "pony-cause": "^2.1.11",
     "redent": "^4.0.0",
     "sinon": "^18.0.0",
