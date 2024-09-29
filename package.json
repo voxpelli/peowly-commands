@@ -44,7 +44,7 @@
     "test": "run-s check test:*"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.19",
+    "@types/chai": "^4.3.20",
     "@types/mocha": "^10.0.8",
     "@types/node": "^18.19.50",
     "@types/sinon": "^17.0.3",
@@ -60,7 +60,7 @@
     "knip": "^5.30.2",
     "markdown-or-chalk": "^0.2.3",
     "mocha": "^10.7.3",
-    "npm-run-all2": "^6.2.2",
+    "npm-run-all2": "^6.2.3",
     "ora": "^8.1.0",
     "pony-cause": "^2.1.11",
     "redent": "^4.0.0",
