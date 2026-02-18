@@ -44,7 +44,7 @@
     "test": "run-s check test:*"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.19",
+    "@types/chai": "^5.0.0",
     "@types/mocha": "^10.0.8",
     "@types/node": "^18.19.50",
     "@types/sinon": "^17.0.3",
