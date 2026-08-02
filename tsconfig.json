@@ -9,6 +9,6 @@
     "test/**/*",
   ],
   "compilerOptions": {
-    "types": ["node", "mocha"]
+    "types": ["node"]
   }
 }
