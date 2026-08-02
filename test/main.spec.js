@@ -1,16 +1,12 @@
-import chai from 'chai';
-import sinon from 'sinon';
-import sinonChai from 'sinon-chai';
+import assert from 'node:assert/strict';
+import { describe, it, mock } from 'node:test';
 
 // TODO: Replace with proper setup
 import { peowlyCommands } from '../index.js';
 
-chai.use(sinonChai);
-chai.should();
-
 describe('peowlyCommands()', () => {
   it('should route the commands correctly', async () => {
-    const run = sinon.stub().resolves();
+    const run = mock.fn();
 
     await peowlyCommands(
       {
@@ -26,6 +22,7 @@ describe('peowlyCommands()', () => {
       }
     );
 
-    run.should.have.been.calledOnceWith(['bar']);
+    assert.strictEqual(run.mock.callCount(), 1);
+    assert.deepStrictEqual(run.mock.calls[0].arguments[0], ['bar']);
   });
 });
