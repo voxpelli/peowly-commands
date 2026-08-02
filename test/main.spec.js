@@ -1,8 +1,6 @@
 import assert from 'node:assert/strict';
-// eslint-disable-next-line n/no-unsupported-features/node-builtins
 import { describe, it, mock } from 'node:test';
 
-// TODO: Replace with proper setup
 import { peowlyCommands, PeowlyCommandMissingError, PeowlyCommandOmittedError } from '../index.js';
 
 describe('peowlyCommands()', () => {
