@@ -1,10 +1,9 @@
 /* eslint-disable unicorn/no-process-exit */
 /* eslint-disable no-console */
 
-import { trimNewlines } from 'trim-newlines';
-import redent from 'redent';
-
 import { defaultFlags, formatFlagList, peowly } from 'peowly';
+import redent from 'redent';
+import { trimNewlines } from 'trim-newlines';
 
 import { validationFlags } from '../../flags/index.js';
 import { InputError } from '../../utils/errors.js';

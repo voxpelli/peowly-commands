@@ -4,8 +4,8 @@ import type {
   AnyFlags,
   ExtendedParseArgsConfig,
   HelpListBasicItem,
-  PeowlyMeta,
   PackageJsonLike,
+  PeowlyMeta,
 } from 'peowly';
 
 export type NormalizedPackageJsonLike = PackageJsonLike & NormalizedPackageJson;

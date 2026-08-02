@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { describe, it, mock } from 'node:test';
 
-import { peowlyCommands, PeowlyCommandMissingError, PeowlyCommandOmittedError } from '../index.js';
+import { PeowlyCommandMissingError, PeowlyCommandOmittedError, peowlyCommands } from '../index.js';
 
 describe('peowlyCommands()', () => {
   it('should route the commands correctly', async () => {
