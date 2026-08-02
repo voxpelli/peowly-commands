@@ -37,4 +37,5 @@ export interface CliOptions<Flags extends AnyFlags> extends CliMetaOptions, Omit
   aliases?: CliAliases;
   args?: string[];
   name?: string;
+  skipHelpFallback?: boolean;
 }
