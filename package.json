@@ -11,7 +11,7 @@
   "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
   "license": "MIT",
   "engines": {
-    "node": "^22.13.0 || >=24.0.0",
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0",
     "typescript": ">=6"
   },
   "type": "module",
@@ -66,7 +66,7 @@
   },
   "dependencies": {
     "@types/normalize-package-data": "^2.4.4",
-    "normalize-package-data": "^6.0.1",
+    "normalize-package-data": "^8.0.0",
     "peowly": "^2.0.0",
     "read-package-up": "^12.0.0"
   }
