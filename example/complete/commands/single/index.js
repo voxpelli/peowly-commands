@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 
 import chalk from 'chalk';
-import { MarkdownOrChalk } from 'markdown-or-chalk';
+import { getOutputStyler } from 'markdown-or-chalk';
 import ora from 'ora';
 import { formatHelpMessage, peowly } from 'peowly';
 
@@ -170,7 +170,7 @@ function formatWorkResult ({ data }, { name, outputJson, outputMarkdown, strict 
   if (outputJson) {
     console.log(JSON.stringify(data, undefined, 2));
   } else {
-    const format = new MarkdownOrChalk(!!outputMarkdown);
+    const format = getOutputStyler(outputMarkdown ? 'markdown' : 'ansi');
     const url = `https://www.google.com/search?q=${encodeURIComponent(data.join(', '))}`;
 
     if (data[0] !== 'xyz') {
@@ -180,7 +180,7 @@ function formatWorkResult ({ data }, { name, outputJson, outputMarkdown, strict 
       '\nYou can look that name up here: ' +
       format.hyperlink(`${data.join(', ')}@Google`, url, { fallbackToUrl: true })
     );
-    if (!outputMarkdown) {
+    if (format.type === 'ansi') {
       console.log(chalk.dim('\nOr rerun', chalk.italic(name), 'using the', chalk.italic('--json'), 'flag to get JSON output'));
     }
   }
