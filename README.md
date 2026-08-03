@@ -68,6 +68,12 @@ peowlyCommands(commands: CliCommands, options: CliOptions, meta?: PeowlyMeta | u
 
 Thrown when `peowlyCommands()` is given a command that it can not find. Comes with a `commandName` property and a `showHelp()` function. The latter works like the `showHelp()` of [`peowly`](https://github.com/voxpelli/peowly)
 
+### PeowlyCommandOmittedError
+
+Thrown by default when `peowlyCommands()` is given no command. Comes with a `showHelp()` function that works like the `showHelp()` of [`peowly`](https://github.com/voxpelli/peowly).
+
+Set `options.showHelpOnNoCommand` to `true` to show help and exit with code 0 instead of throwing.
+
 ## Similar modules
 
 * [`argsclopts`](https://github.com/bcomnes/argsclopts) – also concerned with helpers around `parseArgs`

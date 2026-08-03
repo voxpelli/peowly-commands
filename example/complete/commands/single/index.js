@@ -33,6 +33,7 @@ export const single = {
  * @property {boolean} outputJson
  * @property {boolean} outputMarkdown
  * @property {boolean} strict
+ * @property {boolean} progress
  */
 
 /**
@@ -58,10 +59,15 @@ function setupCommand (name, description, args, meta) {
       description: 'The subtitle to use',
     },
     count: {
-      type: 'string',
+      type: 'number',
       'short': 'c',
-      'default': '16',
-      description: 'The subtitle to use',
+      'default': 16,
+      description: 'Number of iterations',
+    },
+    progress: {
+      type: 'boolean',
+      'default': true,
+      description: 'Show progress spinner',
     },
     logs: {
       type: 'boolean',
@@ -85,6 +91,7 @@ function setupCommand (name, description, args, meta) {
   const {
     json: outputJson,
     markdown: outputMarkdown,
+    progress,
     strict,
   } = cli.flags;
 
@@ -104,6 +111,7 @@ function setupCommand (name, description, args, meta) {
     inputItem,
     outputJson,
     outputMarkdown,
+    progress,
     strict,
   };
 
@@ -117,12 +125,14 @@ function setupCommand (name, description, args, meta) {
 
 /**
  * @param {string} inputName
- * @param {Pick<CommandContext, 'strict'>} context
+ * @param {Pick<CommandContext, 'strict' | 'progress'>} context
  * @returns {Promise<void|WorkResult>}
  */
-async function doTheWork (inputName, { strict }) {
-  // Using "ora" is of course optional
-  const spinner = ora(`Looking up data for ${inputName}`).start();
+async function doTheWork (inputName, { progress, strict }) {
+  // Using "ora" is of course optional — gated by --progress/--no-progress
+  const spinner = progress
+    ? ora(`Looking up data for ${inputName}`).start()
+    : undefined;
 
   // Should be an actual async task
   const lookupResult = inputName === 'abc' ? false : await inputName;
@@ -130,15 +140,19 @@ async function doTheWork (inputName, { strict }) {
   // Handle possible failure in the task...
   if (lookupResult === false) {
     // Using "chalk" is of course optional
-    spinner.fail(chalk.white.bgRed('Unexpected work error:') + ' Failed processing input');
+    if (spinner) {
+      spinner.fail(chalk.white.bgRed('Unexpected work error:') + ' Failed processing input');
+    } else {
+      console.error(chalk.white.bgRed('Unexpected work error:') + ' Failed processing input');
+    }
     process.exit(1);
   }
 
   // ...else update the spinner with the result...
   if (lookupResult === 'xyz') {
-    spinner.succeed('All good!');
+    spinner?.succeed('All good!');
   } else {
-    spinner[strict ? 'fail' : 'succeed'](`Found an issue with name: ${lookupResult}`);
+    spinner?.[strict ? 'fail' : 'succeed'](`Found an issue with name: ${lookupResult}`);
   }
 
   // ...and return it for further processing!

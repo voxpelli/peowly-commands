@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { peowlyCommands } from 'peowly-commands';
+import { PeowlyCommandOmittedError, peowlyCommands } from 'peowly-commands';
 import { messageWithCauses, stackWithCauses } from 'pony-cause';
 
 import { cliCommands } from './commands/index.js';
@@ -15,6 +15,10 @@ try {
   let errorMessage = '';
   /** @type {string|undefined} */
   let errorBody;
+
+  if (err instanceof PeowlyCommandOmittedError) {
+    err.showHelp(2);
+  }
 
   if (err instanceof ResultError) {
     // eslint-disable-next-line unicorn/no-process-exit

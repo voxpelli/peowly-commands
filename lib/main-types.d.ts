@@ -4,8 +4,8 @@ import type {
   AnyFlags,
   ExtendedParseArgsConfig,
   HelpListBasicItem,
-  PeowlyMeta,
   PackageJsonLike,
+  PeowlyMeta,
 } from 'peowly';
 
 export type NormalizedPackageJsonLike = PackageJsonLike & NormalizedPackageJson;
@@ -37,4 +37,5 @@ export interface CliOptions<Flags extends AnyFlags> extends CliMetaOptions, Omit
   aliases?: CliAliases;
   args?: string[];
   name?: string;
+  showHelpOnNoCommand?: boolean;
 }
