@@ -68,6 +68,6 @@
     "@types/normalize-package-data": "^2.4.4",
     "normalize-package-data": "^6.0.1",
     "peowly": "^2.0.0",
-    "read-package-up": "^11.0.0"
+    "read-package-up": "^12.0.0"
   }
 }
