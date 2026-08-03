@@ -140,7 +140,11 @@ async function doTheWork (inputName, { progress, strict }) {
   // Handle possible failure in the task...
   if (lookupResult === false) {
     // Using "chalk" is of course optional
-    spinner?.fail(chalk.white.bgRed('Unexpected work error:') + ' Failed processing input');
+    if (spinner) {
+      spinner.fail(chalk.white.bgRed('Unexpected work error:') + ' Failed processing input');
+    } else {
+      console.error(chalk.white.bgRed('Unexpected work error:') + ' Failed processing input');
+    }
     process.exit(1);
   }
 
