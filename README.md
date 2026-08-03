@@ -70,7 +70,9 @@ Thrown when `peowlyCommands()` is given a command that it can not find. Comes wi
 
 ### PeowlyCommandOmittedError
 
-Thrown when `peowlyCommands()` is given no command and `options.skipHelpFallback` is set to `true`. Comes with a `showHelp()` function that works like the `showHelp()` of [`peowly`](https://github.com/voxpelli/peowly)
+Thrown by default when `peowlyCommands()` is given no command. Comes with a `showHelp()` function that works like the `showHelp()` of [`peowly`](https://github.com/voxpelli/peowly).
+
+Set `options.showHelpOnNoCommand` to `true` to show help and exit with code 0 instead of throwing.
 
 ## Similar modules
 

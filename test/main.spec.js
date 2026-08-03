@@ -26,8 +26,8 @@ describe('peowlyCommands()', () => {
     assert.deepStrictEqual(run.mock.calls[0].arguments[0], ['bar']);
   });
 
-  describe('skipHelpFallback', () => {
-    it('should throw PeowlyCommandOmittedError when no command is given', async () => {
+  describe('showHelpOnNoCommand', () => {
+    it('should throw PeowlyCommandOmittedError by default when no command is given', async () => {
       await assert.rejects(
         peowlyCommands(
           {
@@ -40,14 +40,13 @@ describe('peowlyCommands()', () => {
             args: [],
             name: 'name-of-cli',
             importMeta: import.meta,
-            skipHelpFallback: true,
           }
         ),
         PeowlyCommandOmittedError
       );
     });
 
-    it('should still run a valid command when skipHelpFallback is true', async () => {
+    it('should still run a valid command when showHelpOnNoCommand is true', async () => {
       const run = mock.fn();
 
       await peowlyCommands(
@@ -61,7 +60,7 @@ describe('peowlyCommands()', () => {
           args: ['foo', 'bar'],
           name: 'name-of-cli',
           importMeta: import.meta,
-          skipHelpFallback: true,
+          showHelpOnNoCommand: true,
         }
       );
 
@@ -81,14 +80,14 @@ describe('peowlyCommands()', () => {
             args: ['unknown'],
             name: 'name-of-cli',
             importMeta: import.meta,
-            skipHelpFallback: true,
+            showHelpOnNoCommand: true,
           }
         ),
         PeowlyCommandMissingError
       );
     });
 
-    it('should show help by default when no command is given', async () => {
+    it('should show help and exit with code 0 when showHelpOnNoCommand is true', async () => {
       const originalExit = process.exit;
       // eslint-disable-next-line no-console
       const originalLog = console.log;
@@ -111,6 +110,7 @@ describe('peowlyCommands()', () => {
             args: [],
             name: 'name-of-cli',
             importMeta: import.meta,
+            showHelpOnNoCommand: true,
           }
         );
       } catch {
@@ -123,7 +123,7 @@ describe('peowlyCommands()', () => {
 
       assert.strictEqual(exitMock.mock.callCount(), 1);
       assert.ok(exitMock.mock.calls[0]);
-      assert.strictEqual(exitMock.mock.calls[0].arguments[0], 2);
+      assert.strictEqual(exitMock.mock.calls[0].arguments[0], 0);
       assert.strictEqual(logMock.mock.callCount(), 1);
     });
   });
