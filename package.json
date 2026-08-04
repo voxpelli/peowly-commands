@@ -56,7 +56,7 @@
     "knip": "^6.31.0",
     "markdown-or-chalk": "^0.3.2",
     "npm-run-all2": "^9.0.3",
-    "ora": "^8.1.0",
+    "ora": "^9.4.1",
     "pony-cause": "^2.1.11",
     "redent": "^4.0.0",
     "trim-newlines": "^5.0.0",
