@@ -61,7 +61,7 @@
     "redent": "^4.0.0",
     "trim-newlines": "^5.0.0",
     "type-coverage": "^2.30.1",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "validate-conventional-commit": "^2.0.0"
   },
   "dependencies": {
