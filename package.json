@@ -55,7 +55,7 @@
     "installed-check": "^11.0.0",
     "knip": "^6.31.0",
     "markdown-or-chalk": "^0.3.2",
-    "npm-run-all2": "^9.0.3",
+    "npm-run-all2": "^9.0.4",
     "ora": "^9.4.1",
     "pony-cause": "^2.1.11",
     "redent": "^4.0.0",
